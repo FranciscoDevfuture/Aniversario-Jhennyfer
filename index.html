@@ -56,9 +56,9 @@
     position: absolute;
     pointer-events: none;
   }
-  .floral-tl { top:-10px; left:-10px; width:340px; opacity:.9; }
-  .floral-tr { top:-10px; right:-10px; width:280px; opacity:.85; transform: scaleX(-1); }
-  .floral-bot { bottom:-10px; left:50%; transform:translateX(-50%); width:320px; opacity:.75; }
+  .floral-tl { top:-10px; left:-10px; width:min(340px, 55vw); opacity:.9; }
+  .floral-tr { top:-10px; right:-10px; width:min(280px, 45vw); opacity:.85; transform: scaleX(-1); }
+  .floral-bot { bottom:-10px; left:50%; transform:translateX(-50%); width:min(320px, 80vw); opacity:.75; }
 
   .hero-inner { position: relative; z-index: 1; }
 
@@ -467,8 +467,124 @@
   }
   .reveal.visible { opacity:1; transform:translateY(0); }
 
-  /* ── FLOCOS HOVER ── */
-  @media (max-width: 600px) {
+  /* ── PRESENTES ── */
+  .gifts-section {
+    background: linear-gradient(160deg, #0d1b3e 0%, #1a2e5a 50%, #0d1b3e 100%);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .gifts-section::before {
+    content: '⚡ 🦉 ⚡ 🧙‍♀️ ⚡ 🦉 ⚡ 🧙‍♀️ ⚡ 🦉 ⚡ 🧙‍♀️ ⚡ 🦉 ⚡';
+    position: absolute;
+    top: 16px; left: 0; right: 0;
+    font-size: 1rem;
+    opacity: .18;
+    letter-spacing: .3em;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .gifts-section .section-label { color: var(--gold2); }
+  .gifts-section .section-title { color: var(--gold2); }
+  .gifts-hp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,.12);
+    border: 1px solid rgba(201,168,76,.35);
+    border-radius: 40px;
+    padding: 8px 20px;
+    margin: 0 auto 36px;
+    font-style: italic;
+    color: var(--gold2);
+    font-size: 1rem;
+  }
+  .gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .gift-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(201,168,76,.25);
+    border-radius: 16px;
+    padding: 24px 20px;
+    transition: transform .25s, background .25s, box-shadow .25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .gift-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--royal), var(--gold), var(--royal));
+    opacity: 0;
+    transition: opacity .25s;
+  }
+  .gift-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,.09);
+    box-shadow: 0 12px 32px rgba(0,0,0,.3);
+  }
+  .gift-card:hover::before { opacity: 1; }
+  .gift-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .gift-title {
+    font-family: 'Cinzel', serif;
+    font-size: .8rem;
+    letter-spacing: .15em;
+    color: var(--gold2);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .gift-detail {
+    font-style: italic;
+    color: var(--ice);
+    font-size: .95rem;
+    line-height: 1.6;
+    opacity: .8;
+  }
+  .gift-card.hp {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(114,9,183,.15), rgba(30,64,128,.25));
+    border-color: rgba(201,168,76,.4);
+  }
+  .gift-card.hp .gift-icon { font-size: 2.4rem; }
+
+
+  /* ── BANNER TOPO ── */
+  .top-banner {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    background: linear-gradient(90deg, #1a2e5a, #1e4080, #1a2e5a);
+    border-bottom: 2px solid #c9a84c;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.2);
+  }
+  .top-banner p {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(.65rem, 2.5vw, .8rem);
+    letter-spacing: .18em;
+    color: #e8d48a;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .top-banner span { color: #c9a84c; font-size: 1rem; }
+  body { padding-top: 44px; }
+
+
     .tl-item { flex-direction: column !important; text-align: center !important; }
     .timeline::before { left: 50%; }
     .date-card { padding: 36px 28px; }
@@ -479,6 +595,13 @@
 <body>
 
 <canvas id="snow-canvas"></canvas>
+
+<!-- BANNER FIXO TOPO -->
+<div class="top-banner">
+  <span>❄</span>
+  <p>Você recebeu um convite&nbsp;·&nbsp;15 anos de Jhennyfer&nbsp;·&nbsp;Baile de Inverno&nbsp;·&nbsp;30 de Outubro de 2026</p>
+  <span>❄</span>
+</div>
 
 <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
 <section class="hero">
@@ -610,7 +733,7 @@
       <span class="date-month">Outubro</span>
       <span class="date-year">2026</span>
       <div class="date-info">
-        <p>🕐 Às 20h15</p>
+        <p>🕐 Às 20h00</p>
         <p>📍 Rua José Angelo Rodrigues, 17</p>
         <p>Embu Mirim · Itapecerica da Serra – SP</p>
       </div>
@@ -678,9 +801,65 @@
     <div class="local-card">
       <p>📍 Rua José Angelo Rodrigues, 17</p>
       <p>Embu Mirim · Itapecerica da Serra – SP</p>
-      <p style="margin-top:10px; color:var(--gold2);">🕐 Às 20h15</p>
+      <p style="margin-top:10px; color:var(--gold2);">🕐 Às 20h00</p>
     </div>
     <a href="https://www.google.com/maps/search/Rua+José+Angelo+Rodrigues+17+Embu+Mirim+Itapecerica+da+Serra+SP" target="_blank" class="local-btn" style="cursor:pointer; opacity:1;">Ver no Mapa</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ PRESENTES ════════════════════════════════════ -->
+<div class="gifts-section">
+  <div class="reveal" style="max-width:860px;margin:0 auto">
+    <p class="section-label">Lista de presentes</p>
+    <h2 class="section-title">Sugestões de Presentes</h2>
+    <div class="divider-gold"><span>✦</span></div>
+    <div class="gifts-hp-badge">⚡ Ela é fã de Harry Potter — itens temáticos são muito bem-vindos! 🧙‍♀️</div>
+
+    <div class="gifts-grid">
+
+      <div class="gift-card">
+        <span class="gift-icon">👚</span>
+        <p class="gift-title">Roupas</p>
+        <p class="gift-detail">Blusa · Tam. M<br/>Calça · Tam. 40/42</p>
+      </div>
+
+      <div class="gift-card">
+        <span class="gift-icon">👟</span>
+        <p class="gift-title">Calçados</p>
+        <p class="gift-detail">Tam. 35/36</p>
+      </div>
+
+      <div class="gift-card">
+        <span class="gift-icon">🥈</span>
+        <p class="gift-title">Acessórios</p>
+        <p class="gift-detail">Prata de preferência<br/>(colares, pulseiras, brincos)</p>
+      </div>
+
+      <div class="gift-card">
+        <span class="gift-icon">🌸</span>
+        <p class="gift-title">Perfumes</p>
+        <p class="gift-detail">Fragrâncias femininas<br/>à escolha</p>
+      </div>
+
+      <div class="gift-card">
+        <span class="gift-icon">✨</span>
+        <p class="gift-title">Skincare & Cremes</p>
+        <p class="gift-detail">Cremes hidratantes<br/>Itens de skincare</p>
+      </div>
+
+      <div class="gift-card">
+        <span class="gift-icon">💄</span>
+        <p class="gift-title">Maquiagem</p>
+        <p class="gift-detail">Qualquer item<br/>de make é bem-vindo!</p>
+      </div>
+
+      <div class="gift-card hp">
+        <span class="gift-icon">⚡🦉📚</span>
+        <p class="gift-title">Tema Harry Potter</p>
+        <p class="gift-detail">Ela é uma grande fã! Acessórios, camisetas, canecas, livros, itens de coleção ou qualquer presente com o tema do Mundo Bruxo serão recebidos com muito carinho 🪄</p>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -691,7 +870,7 @@
     <h2 class="section-title">Esperamos por você</h2>
     <div class="divider-gold"><span>✦</span></div>
     <div class="rsvp-card">
-      <p>Sua presença tornará esta noite ainda mais especial.<br/>Confirme pelo WhatsApp e venha celebrar conosco!</p>
+      <p>Sua presença tornará esta noite ainda mais especial.<br/>Confirme sua presença pelo WhatsApp<br/>até o dia <strong style="color:var(--royal);font-style:normal;">15 de Setembro de 2026</strong> 💙</p>
       <a class="rsvp-btn" href="https://wa.me/5511982806378?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20Baile%20de%20Inverno%20da%20Jhennyfer%20%F0%9F%92%99" target="_blank">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.555 4.126 1.526 5.857L.057 23.882a.5.5 0 00.613.614l6.085-1.497A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.743 9.743 0 01-5.018-1.386l-.36-.214-3.724.916.948-3.636-.234-.374A9.709 9.709 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
         Confirmar Presença
@@ -819,7 +998,36 @@ function updateCd() {
 updateCd();
 setInterval(updateCd, 1000);
 
-// ── SCROLL REVEAL ──
+// ── COUNTDOWN ──
+function updateCd() {
+  try {
+    var target = new Date(2026, 9, 30, 20, 0, 0); // mês 9 = outubro (0-indexed)
+    var now = new Date();
+    var diff = target - now;
+    var el = document.getElementById('countdown');
+    if (!el) return;
+    if (diff <= 0) {
+      el.innerHTML = '<p style="color:#e8c96a;font-family:Cinzel,serif;letter-spacing:.15em;font-size:1.1rem;">A festa chegou! 🎉</p>';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    var days  = document.getElementById('cd-days');
+    var hours = document.getElementById('cd-hours');
+    var min   = document.getElementById('cd-min');
+    var sec   = document.getElementById('cd-sec');
+    if (days)  days.textContent  = d < 10 ? '0'+d : ''+d;
+    if (hours) hours.textContent = h < 10 ? '0'+h : ''+h;
+    if (min)   min.textContent   = m < 10 ? '0'+m : ''+m;
+    if (sec)   sec.textContent   = s < 10 ? '0'+s : ''+s;
+  } catch(e) {}
+}
+updateCd();
+setInterval(updateCd, 1000);
+
+
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.12 });
@@ -827,4 +1035,3 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
-
