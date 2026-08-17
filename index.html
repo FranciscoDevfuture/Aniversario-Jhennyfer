@@ -430,6 +430,63 @@
   }
 
   /* ── ANIMAÇÕES ── */
+
+  /* ── CORES NÃO PERMITIDAS ── */
+  .cores-block {
+    margin-top: 20px;
+    background: white;
+    border: 1px solid #f5c6c6;
+    border-radius: 14px;
+    padding: 20px 24px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 16px rgba(180,30,30,.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .cores-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #c0392b, #e74c3c, #c0392b);
+  }
+  .cores-title {
+    font-family: 'Cinzel', serif;
+    font-size: .78rem;
+    letter-spacing: .18em;
+    color: #c0392b;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .cores-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .cor-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-family: 'Cinzel', serif;
+    font-size: .62rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,.18);
+  }
+  .cores-obs {
+    font-style: italic;
+    color: #c0392b;
+    font-size: .85rem;
+    text-align: center;
+    opacity: .85;
+  }
+
   /* ── FOTO ── */
   .photo-section {
     background: linear-gradient(160deg, #ddeeff 0%, #eef5ff 100%);
@@ -750,7 +807,18 @@
         <p>📍 Rua José Angelo Rodrigues, 17</p>
         <p>Embu Mirim · Itapecerica da Serra – SP</p>
       </div>
-      <span class="dress-badge">Traje · A Rigor</span>
+      <span class="dress-badge">Traje · Social</span>
+    </div>
+    <div class="cores-block">
+      <p class="cores-title">🚫 Cores não permitidas</p>
+      <div class="cores-lista">
+        <span class="cor-item" style="background:#1a2e5a; color:#ffffff;">Azul Marinho</span>
+        <span class="cor-item" style="background:#1e4080;">Azul Royal</span>
+        <span class="cor-item" style="background:#2d6ab4;">Azul Escuro</span>
+        <span class="cor-item" style="background:#87ceeb; color:#333;">Azul Claro</span>
+        <span class="cor-item" style="background:#f0f8ff; color:#333; border:1px solid #ccc;">Branco</span>
+      </div>
+      <p class="cores-obs">Por favor, evite qualquer tom de azul e branco</p>
     </div>
   </div>
 </div>
