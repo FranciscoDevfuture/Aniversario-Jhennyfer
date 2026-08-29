@@ -660,12 +660,86 @@
     .date-card { padding: 36px 28px; }
     .local-card { padding: 28px 20px; }
   }
+
+  /* ── SPLASH SCREEN ── */
+  .splash {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: linear-gradient(175deg, #0a1f4d 0%, #1a3a8c 50%, #0a1f4d 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    transition: opacity .8s ease, visibility .8s ease;
+  }
+  .splash.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .splash-snow { font-size: 2rem; letter-spacing: .4em; margin-bottom: 16px; opacity: .7; }
+  .splash-sub {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(.65rem, 3vw, .8rem);
+    letter-spacing: .25em;
+    color: #a8c4e8;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .splash-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.5rem, 16vw, 6rem);
+    color: #ffffff;
+    line-height: 1;
+    text-shadow: 0 2px 24px rgba(201,168,76,.4);
+    margin-bottom: 4px;
+  }
+  .splash-event {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(.85rem, 3.5vw, 1.1rem);
+    letter-spacing: .22em;
+    color: #e8c96a;
+    margin-bottom: 48px;
+  }
+  .splash-btn {
+    background: linear-gradient(135deg, #c9a84c, #e8c96a, #c9a84c);
+    color: #1a2e5a;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(.8rem, 3vw, 1rem);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(201,168,76,.4);
+    animation: pulse-btn 2s ease-in-out infinite;
+  }
+  @keyframes pulse-btn {
+    0%, 100% { transform: scale(1);    box-shadow: 0 8px 32px rgba(201,168,76,.4); }
+    50%       { transform: scale(1.05); box-shadow: 0 12px 40px rgba(201,168,76,.6); }
+  }
 </style>
 </head>
 <body>
 
+<!-- ÁUDIO -->
+<audio id="bg-audio" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-<canvas id="snow-canvas"></canvas>
+<!-- SPLASH SCREEN -->
+<div class="splash" id="splash">
+  <p class="splash-snow">❄ ❄ ❄</p>
+  <p class="splash-sub">Você recebeu um convite especial</p>
+  <h1 class="splash-name">Jhennyfer</h1>
+  <p class="splash-event">Baile de Inverno · 30 de Outubro de 2026</p>
+  <button class="splash-btn" onclick="abrirConvite()">✨ Abrir Convite ✨</button>
+</div>
+
+
 
 <!-- BANNER FIXO TOPO -->
 <div class="top-banner">
@@ -1118,10 +1192,6 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
 <!-- MUSIC PLAYER -->
-<audio id="bg-audio" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
-
 <div style="
   position:fixed; bottom:20px; right:20px; z-index:9999;
   display:flex; flex-direction:column; align-items:center; gap:5px;">
@@ -1144,6 +1214,20 @@ var btn = document.getElementById('music-btn');
 var lbl = document.getElementById('music-lbl');
 var on  = false;
 
+function abrirConvite() {
+  // Toca a música ao clicar — Chrome permite pois é interação do usuário
+  aud.play().then(function() {
+    btn.innerHTML = '🔇';
+    lbl.textContent = 'Mudo';
+    on = true;
+  }).catch(function(){});
+
+  // Esconde a splash com fade
+  var splash = document.getElementById('splash');
+  splash.classList.add('hide');
+  setTimeout(function() { splash.style.display = 'none'; }, 900);
+}
+
 function toggleMusic() {
   if (on) {
     aud.pause();
@@ -1151,17 +1235,11 @@ function toggleMusic() {
     lbl.textContent = 'Tocar';
     on = false;
   } else {
-    var p = aud.play();
-    if (p !== undefined) {
-      p.then(function() {
-        btn.innerHTML = '🔇';
-        lbl.textContent = 'Mudo';
-        on = true;
-      }).catch(function(e) {
-        alert('Não foi possível tocar. Tente novamente.');
-        console.log(e);
-      });
-    }
+    aud.play().then(function() {
+      btn.innerHTML = '🔇';
+      lbl.textContent = 'Mudo';
+      on = true;
+    }).catch(function(){});
   }
 }
 </script>
