@@ -652,7 +652,6 @@
     text-align: center;
   }
   .top-banner span { color: #c9a84c; font-size: 1rem; }
-  body { padding-top: 44px; }
 
 
     .tl-item { flex-direction: column !important; text-align: center !important; }
@@ -674,8 +673,7 @@
     text-align: center;
     padding: 40px 24px;
     transition: opacity .8s ease, visibility .8s ease;
-  }
-  .splash.hide {
+  }  .splash.hide {
     opacity: 0;
     visibility: hidden;
   }
@@ -716,6 +714,8 @@
     cursor: pointer;
     box-shadow: 0 8px 32px rgba(201,168,76,.4);
     animation: pulse-btn 2s ease-in-out infinite;
+    display: block;
+    margin: 0 auto;
   }
   @keyframes pulse-btn {
     0%, 100% { transform: scale(1);    box-shadow: 0 8px 32px rgba(201,168,76,.4); }
