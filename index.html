@@ -666,65 +666,145 @@
     position: fixed;
     inset: 0;
     z-index: 99999;
-    background: linear-gradient(175deg, #0a1f4d 0%, #1a3a8c 50%, #0a1f4d 100%);
+    background: linear-gradient(175deg, #ddeeff 0%, #f0f6ff 35%, #ffffff 60%, #e8f0fa 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 40px 24px;
-    transition: opacity .8s ease, visibility .8s ease;
-  }  .splash.hide {
-    opacity: 0;
-    visibility: hidden;
+    overflow: hidden;
+    transition: opacity .8s ease;
   }
-  .splash-snow { font-size: 2rem; letter-spacing: .4em; margin-bottom: 16px; opacity: .7; }
+  .splash.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* flores splash topo esquerdo */
+  .splash-fl-tl {
+    position: absolute;
+    top: -10px; left: -10px;
+    width: min(340px, 55vw);
+    pointer-events: none;
+  }
+  /* flores splash topo direito */
+  .splash-fl-tr {
+    position: absolute;
+    top: -10px; right: -10px;
+    width: min(280px, 45vw);
+    transform: scaleX(-1);
+    pointer-events: none;
+  }
+  /* flores splash rodapé */
+  .splash-fl-bot {
+    position: absolute;
+    bottom: -10px; left: 50%;
+    transform: translateX(-50%);
+    width: min(320px, 80vw);
+    pointer-events: none;
+  }
+
+  /* flocos decorativos estáticos na splash */
+  .splash-flake {
+    position: absolute;
+    color: rgba(45,106,180,.25);
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: sway 4s ease-in-out infinite alternate;
+  }
+  @keyframes sway {
+    from { transform: translateY(0) rotate(0deg); }
+    to   { transform: translateY(-8px) rotate(15deg); }
+  }
+
+  .splash-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* mancha aquarela central */
+  .splash-watercolor {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw; height: 50vw;
+    max-width: 400px; max-height: 280px;
+    background: radial-gradient(ellipse, rgba(200,221,245,.5) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .splash-sub {
     font-family: 'Cinzel', serif;
-    font-size: clamp(.65rem, 3vw, .8rem);
-    letter-spacing: .25em;
-    color: #a8c4e8;
+    font-size: clamp(.6rem, 2.5vw, .75rem);
+    letter-spacing: .28em;
+    color: #1e4080;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
+  .splash-divider {
+    display: flex; align-items: center; gap: 6px;
+    justify-content: center; margin: 8px 0; width: 100%;
+  }
+  .splash-divider::before, .splash-divider::after {
+    content: ''; flex: 1; max-width: 60px; height: .3px;
+  }
+  .splash-divider::before { background: linear-gradient(to right, transparent, #c9a84c); }
+  .splash-divider::after  { background: linear-gradient(to left,  transparent, #c9a84c); }
+  .splash-divider span { color: #c9a84c; font-size: .9rem; }
+
   .splash-name {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 16vw, 6rem);
-    color: #ffffff;
-    line-height: 1;
-    text-shadow: 0 2px 24px rgba(201,168,76,.4);
-    margin-bottom: 4px;
+    font-size: clamp(3rem, 15vw, 6rem);
+    color: #1a2e5a;
+    line-height: 1.1;
+    text-shadow: 0 2px 24px rgba(30,64,128,.15);
+    margin: 4px 0;
+    width: 100%;
+    text-align: center;
+    padding: 0 10px;
   }
   .splash-event {
     font-family: 'Cinzel', serif;
-    font-size: clamp(.85rem, 3.5vw, 1.1rem);
+    font-size: clamp(.75rem, 3vw, 1rem);
     letter-spacing: .22em;
-    color: #e8c96a;
-    margin-bottom: 48px;
+    color: #1e4080;
+    margin-bottom: 4px;
+  }
+  .splash-tagline {
+    font-style: italic;
+    font-size: clamp(.8rem, 2.5vw, .95rem);
+    color: #2d6ab4;
+    margin-bottom: 36px;
   }
   .splash-btn {
     background: linear-gradient(135deg, #c9a84c, #e8c96a, #c9a84c);
     color: #1a2e5a;
     font-family: 'Cinzel', serif;
-    font-size: clamp(.8rem, 3vw, 1rem);
+    font-size: clamp(.8rem, 3vw, .95rem);
     letter-spacing: .2em;
     text-transform: uppercase;
     border: none;
-    padding: 16px 40px;
+    padding: 15px 44px;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 8px 32px rgba(201,168,76,.4);
+    box-shadow: 0 8px 32px rgba(201,168,76,.35);
     animation: pulse-btn 2s ease-in-out infinite;
     display: block;
     margin: 0 auto;
   }
   @keyframes pulse-btn {
-    0%, 100% { transform: scale(1);    box-shadow: 0 8px 32px rgba(201,168,76,.4); }
-    50%       { transform: scale(1.05); box-shadow: 0 12px 40px rgba(201,168,76,.6); }
+    0%, 100% { transform: scale(1);    box-shadow: 0 8px 32px rgba(201,168,76,.35); }
+    50%       { transform: scale(1.05); box-shadow: 0 12px 40px rgba(201,168,76,.55); }
   }
 </style>
 </head>
-<body>
+<body style="overflow:hidden;">
 
 <!-- ÁUDIO -->
 <audio id="bg-audio" loop>
@@ -733,23 +813,85 @@
 
 <!-- SPLASH SCREEN -->
 <div class="splash" id="splash">
-  <p class="splash-snow">❄ ❄ ❄</p>
-  <p class="splash-sub">Você recebeu um convite especial</p>
-  <h1 class="splash-name">Jhennyfer</h1>
-  <p class="splash-event">Baile de Inverno · 30 de Outubro de 2026</p>
-  <button class="splash-btn" onclick="abrirConvite()">✨ Abrir Convite ✨</button>
+
+  <!-- Flores topo esquerdo -->
+  <svg class="splash-fl-tl" viewBox="0 0 340 260" fill="none">
+    <circle cx="60" cy="80" r="38" fill="#1e4080" opacity=".85"/>
+    <circle cx="90" cy="100" r="30" fill="#2d6ab4" opacity=".7"/>
+    <circle cx="40" cy="110" r="26" fill="#1a2e5a" opacity=".8"/>
+    <circle cx="110" cy="70" r="22" fill="#3578c8" opacity=".6"/>
+    <ellipse cx="200" cy="40" rx="28" ry="22" fill="white" opacity=".95" transform="rotate(-20 200 40)"/>
+    <ellipse cx="230" cy="55" rx="22" ry="18" fill="#e8f0fa" opacity=".9" transform="rotate(10 230 55)"/>
+    <ellipse cx="190" cy="65" rx="18" ry="14" fill="white" opacity=".85" transform="rotate(-35 190 65)"/>
+    <ellipse cx="255" cy="38" rx="20" ry="15" fill="#f0f6ff" opacity=".9" transform="rotate(5 255 38)"/>
+    <circle cx="200" cy="40" r="5" fill="#c9a84c" opacity=".9"/>
+    <circle cx="230" cy="55" r="4" fill="#c9a84c" opacity=".85"/>
+    <circle cx="255" cy="38" r="4" fill="#e8c96a" opacity=".8"/>
+    <ellipse cx="140" cy="130" rx="35" ry="12" fill="#2d5a3a" opacity=".5" transform="rotate(-30 140 130)"/>
+    <ellipse cx="170" cy="110" rx="28" ry="9" fill="#3a7a4a" opacity=".45" transform="rotate(-50 170 110)"/>
+    <circle cx="75" cy="72" r="4" fill="#c9a84c" opacity=".9"/>
+    <circle cx="50" cy="95" r="3" fill="#e8c96a" opacity=".85"/>
+  </svg>
+
+  <!-- Flores topo direito -->
+  <svg class="splash-fl-tr" viewBox="0 0 340 260" fill="none">
+    <circle cx="60" cy="80" r="38" fill="#1e4080" opacity=".85"/>
+    <circle cx="90" cy="100" r="30" fill="#2d6ab4" opacity=".7"/>
+    <circle cx="40" cy="110" r="26" fill="#1a2e5a" opacity=".8"/>
+    <ellipse cx="200" cy="40" rx="28" ry="22" fill="white" opacity=".95" transform="rotate(-20 200 40)"/>
+    <ellipse cx="230" cy="55" rx="22" ry="18" fill="#e8f0fa" opacity=".9" transform="rotate(10 230 55)"/>
+    <ellipse cx="255" cy="38" rx="20" ry="15" fill="#f0f6ff" opacity=".9" transform="rotate(5 255 38)"/>
+    <circle cx="200" cy="40" r="5" fill="#c9a84c" opacity=".9"/>
+    <ellipse cx="140" cy="130" rx="35" ry="12" fill="#2d5a3a" opacity=".5" transform="rotate(-30 140 130)"/>
+    <circle cx="75" cy="72" r="4" fill="#c9a84c" opacity=".9"/>
+  </svg>
+
+  <!-- Flores rodapé -->
+  <svg class="splash-fl-bot" viewBox="0 0 320 80" fill="none">
+    <ellipse cx="160" cy="30" rx="18" ry="14" fill="white" opacity=".9"/>
+    <circle cx="160" cy="30" r="4" fill="#c9a84c"/>
+    <ellipse cx="120" cy="35" rx="14" ry="11" fill="#c8ddf5" opacity=".85"/>
+    <circle cx="120" cy="35" r="3" fill="#c9a84c"/>
+    <ellipse cx="200" cy="35" rx="14" ry="11" fill="#c8ddf5" opacity=".85"/>
+    <circle cx="200" cy="35" r="3" fill="#c9a84c"/>
+    <ellipse cx="85" cy="42" rx="11" ry="8" fill="#2d6ab4" opacity=".7"/>
+    <ellipse cx="235" cy="42" rx="11" ry="8" fill="#2d6ab4" opacity=".7"/>
+    <ellipse cx="145" cy="55" rx="18" ry="6" fill="#2d5a3a" opacity=".5" transform="rotate(-15 145 55)"/>
+    <ellipse cx="175" cy="55" rx="18" ry="6" fill="#3a7a4a" opacity=".45" transform="rotate(15 175 55)"/>
+  </svg>
+
+  <!-- Flocos estáticos decorativos -->
+  <span class="splash-flake" style="top:18%;left:8%;animation-delay:0s;">❄</span>
+  <span class="splash-flake" style="top:25%;right:10%;animation-delay:.7s;">❄</span>
+  <span class="splash-flake" style="top:55%;left:5%;animation-delay:1.2s;font-size:.9rem;">❄</span>
+  <span class="splash-flake" style="top:60%;right:6%;animation-delay:.4s;font-size:.9rem;">❄</span>
+
+  <!-- Mancha aquarela -->
+  <div class="splash-watercolor"></div>
+
+  <!-- Conteúdo centralizado -->
+  <div class="splash-inner">
+    <p class="splash-sub">Vanderson &amp; Fabíola convidam</p>
+    <div class="splash-divider"><span>❄</span></div>
+    <h1 class="splash-name">Jhennyfer</h1>
+    <div class="splash-divider"><span>✦</span></div>
+    <p class="splash-event">Baile de Inverno</p>
+    <p class="splash-tagline">30 de Outubro de 2026 · Às 20h00</p>
+    <button class="splash-btn" onclick="abrirConvite()">✨ Abrir Convite ✨</button>
+  </div>
+
 </div>
 
 
 
 <!-- BANNER FIXO TOPO -->
-<div class="top-banner">
+<div class="top-banner" id="top-banner" style="display:none;">
   <span>❄</span>
   <p>Você recebeu um convite&nbsp;·&nbsp;15 anos de Jhennyfer&nbsp;·&nbsp;Baile de Inverno&nbsp;·&nbsp;30 de Outubro de 2026</p>
   <span>❄</span>
 </div>
 
-<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<div id="main-content" style="display:none;"><!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
 <section class="hero">
 
   <!-- Floral SVG topo esquerdo -->
@@ -892,7 +1034,7 @@
         <p>📍 Rua José Angelo Rodrigues, 17</p>
         <p>Embu Mirim · Itapecerica da Serra – SP</p>
       </div>
-      <span class="dress-badge">Traje · Social</span>
+      <span class="dress-badge">Traje 100%· Social</span>
     </div>
     <div class="cores-block">
       <p class="cores-title">🚫 Cores não permitidas</p>
@@ -1122,6 +1264,7 @@ window.addEventListener('DOMContentLoaded', function() {
       });
       requestAnimationFrame(drawSnow);
     }
+    window.drawSnow = drawSnow;
     drawSnow();
   }
 
@@ -1163,6 +1306,15 @@ window.addEventListener('DOMContentLoaded', function() {
   var on  = false;
 
   window.abrirConvite = function() {
+    // Mostrar conteúdo
+    var main = document.getElementById('main-content');
+    if (main) main.style.display = 'block';
+    var banner = document.getElementById('top-banner');
+    if (banner) banner.style.display = '';
+    var snow = document.getElementById('snow-canvas');
+    if (snow) { snow.style.display = ''; drawSnow(); }
+    document.body.style.overflow = '';
+
     if (aud) {
       aud.play().then(function() {
         if (btn) btn.innerHTML = '🔇';
@@ -1196,6 +1348,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 }); // fim DOMContentLoaded
 </script>
+
+</div><!-- fim main-content -->
 
 <!-- MUSIC PLAYER -->
 <div style="position:fixed;bottom:20px;right:20px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:5px;">
