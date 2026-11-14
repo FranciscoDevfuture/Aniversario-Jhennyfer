@@ -7,7 +7,7 @@
 <meta property="og:title"       content="💙 Memórias do Baile de Inverno · Jhennyfer 15 Anos"/>
 <meta property="og:description" content="Reviva os melhores momentos desta noite inesquecível."/>
 <meta property="og:image"       content="https://franciscodevfuture.github.io/Aniversario-Jhennyfer/preview.jpg"/>
-<meta property="og:url"         content="https://franciscodevfuture.github.io/Aniversario-Jhennyfer/memorias.html"/>
+<meta property="og:url"         content="https://franciscodevfuture.github.io/Aniversario-Jhennyfer/memorias-jhennyfer.html"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -148,9 +148,9 @@ body{background:var(--white);color:var(--navy);font-family:'Cormorant Garamond',
 .polaroid:nth-child(odd){transform:rotate(-2.5deg);}
 .polaroid:nth-child(even){transform:rotate(2deg);}
 .polaroid:hover{transform:rotate(0deg) scale(1.04) translateY(-6px);z-index:2;}
-.polaroid-img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--soft);
+.polaroid-img{position:relative;width:100%;aspect-ratio:1;overflow:hidden;background:var(--soft);
   display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--ice);}
-.polaroid-img img{width:100%;height:100%;object-fit:cover;}
+.polaroid-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
 .polaroid-caption{position:absolute;bottom:10px;left:0;right:0;
   font-family:'Great Vibes',cursive;font-size:1.1rem;color:var(--navy);
   text-align:center;padding:0 14px;}
@@ -424,20 +424,20 @@ footer p{font-style:italic;color:var(--ice);opacity:.6;font-size:.9rem;}
       <span class="polaroid-caption">Família</span>
     </div>
     <div class="polaroid">
-      <div class="polaroid-img">📸<img src="foto4.jpg" alt="Brinde" onerror="this.style.display='none'"/></div>
-      <span class="polaroid-caption">A Passagem</span>
+      <div class="polaroid-img">📸<img src="foto4.jpg" alt="Cerimônia da boneca" style="object-position:center 30%" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">A Boneca</span>
     </div>
     <div class="polaroid">
-      <div class="polaroid-img">📸<img src="foto5.jpg" alt="Bolo" onerror="this.style.display='none'"/></div>
-      <span class="polaroid-caption">O Bolo</span>
+      <div class="polaroid-img">📸<img src="foto5.jpg" alt="Mesa do bolo" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">Mesa do Bolo</span>
     </div>
     <div class="polaroid">
       <div class="polaroid-img">📸<img src="foto6.jpg" alt="Amigos" onerror="this.style.display='none'"/></div>
       <span class="polaroid-caption">Os Amigos</span>
     </div>
     <div class="polaroid">
-      <div class="polaroid-img">📸<img src="foto7.jpg" alt="Festa" onerror="this.style.display='none'"/></div>
-      <span class="polaroid-caption">A Festa</span>
+      <div class="polaroid-img">📸<img src="foto7.jpg" alt="Coreografia" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">A Coreografia</span>
     </div>
     <div class="polaroid">
       <div class="polaroid-img">📸<img src="foto8.jpg" alt="Debutante" onerror="this.style.display='none'"/></div>
@@ -446,7 +446,7 @@ footer p{font-style:italic;color:var(--ice);opacity:.6;font-size:.9rem;}
   </div>
   <p class="polaroid-hint reveal">← arraste para ver mais →</p>
   <div style="text-align:center;margin-top:30px;" class="reveal">
-    <a href="https://drive.google.com" target="_blank" style="
+    <a href="https://drive.google.com/drive/folders/1TUGaFSIJkbbHZH4PN7pTS6xQo6X2W_4f" target="_blank" style="
       display:inline-flex;align-items:center;gap:10px;
       background:linear-gradient(135deg,var(--gold),var(--gold2));
       color:var(--navy);font-family:'Cinzel',serif;font-size:.78rem;
@@ -513,7 +513,7 @@ footer p{font-style:italic;color:var(--ice);opacity:.6;font-size:.9rem;}
   <h2 class="ft-name">Jhennyfer</h2>
   <div class="ft-dv"></div>
   <p>15 Anos · Baile de Inverno · 30.10.2026</p>
-  <p style="margin-top:8px;font-size:.8rem;">Com amor, Família Mendonça.</p>
+  <p style="margin-top:8px;font-size:.8rem;">Com amor, Vanderson &amp; Fabíola</p>
 </footer>
 
 </div><!-- fim main -->
