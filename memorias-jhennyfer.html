@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Memórias · 15 Anos de Jhennyfer · Baile de Inverno</title>
+<meta property="og:title"       content="💙 Memórias do Baile de Inverno · Jhennyfer 15 Anos"/>
+<meta property="og:description" content="Reviva os melhores momentos desta noite inesquecível."/>
+<meta property="og:image"       content="https://franciscodevfuture.github.io/Aniversario-Jhennyfer/preview.jpg"/>
+<meta property="og:url"         content="https://franciscodevfuture.github.io/Aniversario-Jhennyfer/memorias.html"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --navy:#1a2e5a;
+  --royal:#1e4080;
+  --blue:#2d6ab4;
+  --ice:#c8ddf5;
+  --white:#f8fbff;
+  --gold:#c9a84c;
+  --gold2:#e8c96a;
+  --soft:#e8f0fa;
+}
+
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--navy);font-family:'Cormorant Garamond',serif;overflow-x:hidden;}
+
+/* ── SPLASH ── */
+.splash{
+  position:fixed;inset:0;z-index:9999;
+  background:linear-gradient(175deg,#ddeeff 0%,#f0f6ff 40%,#fff 70%,#e8f0fa 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:40px 24px;overflow:hidden;
+  transition:opacity .9s ease;
+}
+.splash.hide{opacity:0;pointer-events:none;}
+.spl-fl{position:absolute;pointer-events:none;}
+.spl-fl-tl{top:-8px;left:-8px;width:min(300px,55vw);}
+.spl-fl-tr{top:-8px;right:-8px;width:min(240px,45vw);transform:scaleX(-1);}
+.spl-fl-bot{bottom:-8px;left:50%;transform:translateX(-50%);width:min(280px,75vw);}
+.spl-wc{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:70vw;height:50vw;max-width:380px;max-height:260px;
+  background:radial-gradient(ellipse,rgba(200,221,245,.5) 0%,transparent 70%);pointer-events:none;}
+.spl-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
+.spl-sub{font-family:'Cinzel',serif;font-size:clamp(.6rem,2.5vw,.75rem);letter-spacing:.28em;
+  color:var(--royal);text-transform:uppercase;margin-bottom:6px;}
+.spl-div{display:flex;align-items:center;gap:6px;justify-content:center;margin:8px 0;width:100%;}
+.spl-div::before,.spl-div::after{content:'';flex:1;max-width:60px;height:.3px;}
+.spl-div::before{background:linear-gradient(to right,transparent,var(--gold));}
+.spl-div::after{background:linear-gradient(to left,transparent,var(--gold));}
+.spl-div span{color:var(--gold);font-size:.9rem;}
+.spl-name{font-family:'Great Vibes',cursive;font-size:clamp(3.5rem,15vw,6rem);
+  color:var(--navy);line-height:1.1;text-shadow:0 2px 24px rgba(30,64,128,.15);margin:4px 0;width:100%;text-align:center;padding:0 10px;}
+.spl-evt{font-family:'Cinzel',serif;font-size:clamp(.75rem,3vw,1rem);letter-spacing:.22em;color:var(--royal);margin-bottom:4px;}
+.spl-tag{font-style:italic;font-size:clamp(.8rem,2.5vw,.95rem);color:var(--blue);margin-bottom:36px;}
+.spl-btn{
+  background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold));
+  color:var(--navy);font-family:'Cinzel',serif;font-size:clamp(.78rem,3vw,.92rem);
+  letter-spacing:.2em;text-transform:uppercase;border:none;
+  padding:14px 40px;border-radius:50px;cursor:pointer;
+  box-shadow:0 8px 32px rgba(201,168,76,.38);
+  animation:pulse-btn 2s ease-in-out infinite;display:block;margin:0 auto;
+}
+@keyframes pulse-btn{
+  0%,100%{transform:scale(1);box-shadow:0 8px 32px rgba(201,168,76,.38);}
+  50%{transform:scale(1.05);box-shadow:0 12px 40px rgba(201,168,76,.58);}
+}
+.spl-flake{position:absolute;color:rgba(45,106,180,.22);font-size:1.1rem;pointer-events:none;
+  animation:sway 4s ease-in-out infinite alternate;}
+@keyframes sway{from{transform:translateY(0) rotate(0deg);}to{transform:translateY(-8px) rotate(15deg);}}
+
+/* ── MAIN ── */
+#main{display:none;}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:70vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:80px 24px 60px;
+  background:linear-gradient(175deg,#ddeeff 0%,#f0f6ff 40%,#fff 70%,#e8f0fa 100%);
+  overflow:hidden;
+}
+.hero-fl{position:absolute;pointer-events:none;}
+.hero-fl-tl{top:-10px;left:-10px;width:min(300px,50vw);opacity:.9;}
+.hero-fl-tr{top:-10px;right:-10px;width:min(250px,42vw);transform:scaleX(-1);opacity:.85;}
+.hero-wc{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:80vw;height:55vw;max-width:440px;max-height:300px;
+  background:radial-gradient(ellipse,rgba(200,221,245,.45) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{position:relative;z-index:1;}
+.hero-sub{font-family:'Cinzel',serif;font-size:clamp(.65rem,2vw,.8rem);
+  letter-spacing:.22em;color:var(--royal);text-transform:uppercase;margin-bottom:8px;}
+.hero-name{font-family:'Great Vibes',cursive;font-size:clamp(4rem,13vw,8rem);
+  color:var(--navy);line-height:1;margin:8px 0;text-shadow:0 2px 28px rgba(30,64,128,.18);}
+.hero-date{font-family:'Cinzel',serif;font-size:clamp(.8rem,2.5vw,1rem);
+  letter-spacing:.18em;color:var(--gold);margin-bottom:6px;}
+.hero-quote{font-style:italic;color:var(--blue);font-size:clamp(.95rem,2.5vw,1.2rem);
+  max-width:500px;margin:0 auto;line-height:1.7;}
+.dv{display:flex;align-items:center;gap:10px;justify-content:center;margin:18px auto;}
+.dv::before,.dv::after{content:'';width:70px;height:1px;}
+.dv::before{background:linear-gradient(to right,transparent,var(--gold));}
+.dv::after{background:linear-gradient(to left,transparent,var(--gold));}
+.dv span{color:var(--gold);font-size:1rem;}
+
+/* ── SEÇÕES ── */
+.sec{padding:80px 24px;max-width:980px;margin:0 auto;text-align:center;}
+.sec-lbl{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.3em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
+.sec-title{font-family:'Great Vibes',cursive;font-size:clamp(2.6rem,7vw,4rem);
+  color:var(--navy);margin-bottom:16px;}
+.sec-body{font-style:italic;font-size:clamp(1rem,2.5vw,1.15rem);color:#3a5080;
+  line-height:1.85;max-width:640px;margin:0 auto 30px;}
+
+/* ── LINHA DO TEMPO ── */
+.timeline-wrap{background:linear-gradient(160deg,#ddeeff 0%,#eef5ff 100%);padding:80px 24px;}
+.timeline{max-width:640px;margin:40px auto 0;position:relative;}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,var(--ice) 10%,var(--ice) 90%,transparent);
+  transform:translateX(-50%);}
+.tl-item{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;align-items:center;margin-bottom:40px;}
+.tl-text-left{text-align:right;padding-right:20px;}
+.tl-text-right{text-align:left;padding-left:20px;}
+.tl-text-empty{padding:20px;}
+.tl-dot{width:48px;height:48px;border-radius:50%;background:var(--royal);
+  border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;position:relative;z-index:1;box-shadow:0 0 0 6px var(--soft);flex-shrink:0;}
+.tl-time{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:3px;display:block;}
+.tl-label{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.1em;
+  color:var(--royal);margin-bottom:2px;}
+.tl-desc{font-style:italic;font-size:.9rem;color:var(--blue);line-height:1.5;}
+
+/* ── POLAROID CARROSSEL ── */
+.polaroid-section{padding:80px 24px;background:#fff;overflow:hidden;}
+.polaroid-track{display:flex;gap:28px;overflow-x:auto;padding:30px 24px 50px;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;cursor:grab;}
+.polaroid-track::-webkit-scrollbar{height:4px;}
+.polaroid-track::-webkit-scrollbar-track{background:var(--ice);}
+.polaroid-track::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+.polaroid{
+  min-width:220px;max-width:220px;background:white;
+  padding:14px 14px 48px;
+  box-shadow:0 8px 32px rgba(30,64,128,.14),0 2px 8px rgba(0,0,0,.08);
+  border-radius:2px;scroll-snap-align:center;flex-shrink:0;
+  transition:transform .3s ease;
+  position:relative;
+}
+.polaroid:nth-child(odd){transform:rotate(-2.5deg);}
+.polaroid:nth-child(even){transform:rotate(2deg);}
+.polaroid:hover{transform:rotate(0deg) scale(1.04) translateY(-6px);z-index:2;}
+.polaroid-img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--soft);
+  display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--ice);}
+.polaroid-img img{width:100%;height:100%;object-fit:cover;}
+.polaroid-caption{position:absolute;bottom:10px;left:0;right:0;
+  font-family:'Great Vibes',cursive;font-size:1.1rem;color:var(--navy);
+  text-align:center;padding:0 14px;}
+.polaroid-hint{text-align:center;margin-top:12px;font-style:italic;
+  font-size:.85rem;color:var(--blue);opacity:.7;}
+
+/* ── MURAL DE MENSAGENS ── */
+.mural-section{background:linear-gradient(160deg,#0d2060 0%,#1a3a8c 50%,#0d2060 100%);
+  padding:80px 24px;}
+.mural-section .sec-lbl{color:var(--gold2);}
+.mural-section .sec-title{color:var(--gold2);}
+.mural-section .sec-body{color:var(--ice);}
+.msg-form{max-width:520px;margin:0 auto 50px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.3);
+  border-radius:20px;padding:30px 28px;position:relative;}
+.msg-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  border-radius:20px 20px 0 0;background:linear-gradient(90deg,var(--royal),var(--gold),var(--royal));}
+.msg-form input,.msg-form textarea{
+  width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(200,221,245,.25);
+  border-radius:10px;padding:12px 16px;color:white;font-family:'Cormorant Garamond',serif;
+  font-size:1rem;margin-bottom:12px;outline:none;resize:none;
+  transition:border-color .2s;
+}
+.msg-form input::placeholder,.msg-form textarea::placeholder{color:rgba(200,221,245,.5);}
+.msg-form input:focus,.msg-form textarea:focus{border-color:var(--gold);}
+.msg-form textarea{height:100px;}
+.msg-btn{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--navy);font-family:'Cinzel',serif;font-size:.78rem;
+  letter-spacing:.18em;text-transform:uppercase;border:none;
+  padding:13px 32px;border-radius:50px;cursor:pointer;width:100%;
+  box-shadow:0 6px 20px rgba(201,168,76,.35);transition:transform .2s,box-shadow .2s;
+}
+.msg-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,.5);}
+.msgs-grid{max-width:860px;margin:0 auto;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+.msg-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(200,221,245,.18);
+  border-radius:14px;padding:20px;text-align:left;position:relative;overflow:hidden;
+  animation:fadeUp .5s ease both;
+}
+.msg-card::before{content:'"';position:absolute;top:-10px;left:14px;
+  font-family:'Great Vibes',cursive;font-size:4rem;color:var(--gold);opacity:.3;line-height:1;}
+.msg-author{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.15em;
+  color:var(--gold2);text-transform:uppercase;margin-bottom:8px;}
+.msg-text{font-style:italic;color:var(--ice);font-size:.95rem;line-height:1.65;}
+.msg-empty{text-align:center;font-style:italic;color:rgba(200,221,245,.4);
+  font-size:1rem;padding:30px;grid-column:1/-1;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── CÁPSULA DO TEMPO ── */
+.capsule-section{padding:80px 24px;background:linear-gradient(160deg,#eef5ff 0%,#fff 50%,#eef5ff 100%);}
+.capsule-card{
+  max-width:580px;margin:40px auto 0;
+  background:white;border-radius:20px;border:1px solid var(--ice);
+  padding:40px 36px;box-shadow:0 12px 48px rgba(30,64,128,.08);
+  position:relative;overflow:hidden;
+}
+.capsule-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--royal),var(--gold),var(--royal));}
+.capsule-lock{font-size:2.5rem;margin-bottom:16px;display:block;}
+.capsule-desc{font-style:italic;color:var(--blue);font-size:1.05rem;line-height:1.7;margin-bottom:24px;}
+.capsule-form textarea{
+  width:100%;background:var(--soft);border:1px solid var(--ice);
+  border-radius:10px;padding:16px;font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;color:var(--navy);resize:none;outline:none;
+  height:160px;line-height:1.7;margin-bottom:16px;
+  transition:border-color .2s;
+}
+.capsule-form textarea:focus{border-color:var(--gold);}
+.capsule-form textarea::placeholder{color:var(--ice);}
+.capsule-btn{
+  background:var(--navy);color:var(--gold2);font-family:'Cinzel',serif;
+  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;border:none;
+  padding:14px 32px;border-radius:50px;cursor:pointer;width:100%;
+  box-shadow:0 6px 20px rgba(30,64,128,.25);transition:transform .2s;
+}
+.capsule-btn:hover{transform:translateY(-2px);}
+.capsule-saved{display:none;text-align:center;padding:20px;}
+.capsule-saved p{font-style:italic;color:var(--blue);font-size:1.05rem;line-height:1.7;}
+.capsule-saved .lock-big{font-size:3rem;display:block;margin-bottom:12px;}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:56px 24px;text-align:center;}
+footer .ft-name{font-family:'Great Vibes',cursive;font-size:3.2rem;
+  color:var(--gold2);margin-bottom:6px;}
+footer p{font-style:italic;color:var(--ice);opacity:.6;font-size:.9rem;}
+.ft-dv{width:60px;height:1px;background:var(--gold);margin:16px auto;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:600px){
+  .tl-item{grid-template-columns:1fr 40px 1fr;}
+  .tl-text-left,.tl-text-right{font-size:.88rem;}
+  .timeline::before{left:50%;}
+  .polaroid{min-width:185px;max-width:185px;}
+  .msgs-grid{grid-template-columns:1fr;}
+  .capsule-card{padding:28px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ SPLASH ══ -->
+<div class="splash" id="splash">
+  <!-- Flores topo esquerdo -->
+  <svg class="spl-fl spl-fl-tl" viewBox="0 0 340 260" fill="none">
+    <circle cx="60" cy="80" r="38" fill="#1e4080" opacity=".85"/>
+    <circle cx="90" cy="100" r="30" fill="#2d6ab4" opacity=".7"/>
+    <circle cx="40" cy="110" r="26" fill="#1a2e5a" opacity=".8"/>
+    <ellipse cx="200" cy="40" rx="28" ry="22" fill="white" opacity=".95" transform="rotate(-20 200 40)"/>
+    <ellipse cx="230" cy="55" rx="22" ry="18" fill="#e8f0fa" opacity=".9" transform="rotate(10 230 55)"/>
+    <ellipse cx="255" cy="38" rx="20" ry="15" fill="#f0f6ff" opacity=".9" transform="rotate(5 255 38)"/>
+    <circle cx="200" cy="40" r="5" fill="#c9a84c"/><circle cx="230" cy="55" r="4" fill="#c9a84c"/>
+    <ellipse cx="140" cy="130" rx="35" ry="12" fill="#2d5a3a" opacity=".5" transform="rotate(-30 140 130)"/>
+    <circle cx="75" cy="72" r="4" fill="#c9a84c" opacity=".9"/>
+  </svg>
+  <svg class="spl-fl spl-fl-tr" viewBox="0 0 340 260" fill="none">
+    <circle cx="60" cy="80" r="38" fill="#1e4080" opacity=".85"/>
+    <circle cx="90" cy="100" r="30" fill="#2d6ab4" opacity=".7"/>
+    <ellipse cx="200" cy="40" rx="28" ry="22" fill="white" opacity=".95" transform="rotate(-20 200 40)"/>
+    <ellipse cx="255" cy="38" rx="20" ry="15" fill="#f0f6ff" opacity=".9" transform="rotate(5 255 38)"/>
+    <circle cx="200" cy="40" r="5" fill="#c9a84c"/>
+    <ellipse cx="140" cy="130" rx="35" ry="12" fill="#2d5a3a" opacity=".5" transform="rotate(-30 140 130)"/>
+  </svg>
+  <svg class="spl-fl spl-fl-bot" viewBox="0 0 320 80" fill="none">
+    <ellipse cx="160" cy="30" rx="18" ry="14" fill="white" opacity=".9"/><circle cx="160" cy="30" r="4" fill="#c9a84c"/>
+    <ellipse cx="120" cy="35" rx="14" ry="11" fill="#c8ddf5" opacity=".85"/><circle cx="120" cy="35" r="3" fill="#c9a84c"/>
+    <ellipse cx="200" cy="35" rx="14" ry="11" fill="#c8ddf5" opacity=".85"/><circle cx="200" cy="35" r="3" fill="#c9a84c"/>
+    <ellipse cx="85" cy="42" rx="11" ry="8" fill="#2d6ab4" opacity=".7"/>
+    <ellipse cx="235" cy="42" rx="11" ry="8" fill="#2d6ab4" opacity=".7"/>
+    <ellipse cx="145" cy="55" rx="18" ry="6" fill="#2d5a3a" opacity=".5" transform="rotate(-15 145 55)"/>
+    <ellipse cx="175" cy="55" rx="18" ry="6" fill="#3a7a4a" opacity=".45" transform="rotate(15 175 55)"/>
+  </svg>
+  <span class="spl-flake" style="top:18%;left:8%;">❄</span>
+  <span class="spl-flake" style="top:28%;right:9%;animation-delay:.7s;">❄</span>
+  <span class="spl-flake" style="top:58%;left:5%;animation-delay:1.3s;font-size:.9rem;">❄</span>
+  <span class="spl-flake" style="top:62%;right:6%;animation-delay:.4s;font-size:.9rem;">❄</span>
+  <div class="spl-wc"></div>
+  <div class="spl-inner">
+    <p class="spl-sub">Vanderson &amp; Fabíola presenteiam</p>
+    <div class="spl-div"><span>❄</span></div>
+    <h1 class="spl-name">Jhennyfer</h1>
+    <div class="spl-div"><span>✦</span></div>
+    <p class="spl-evt">Memórias do Baile de Inverno</p>
+    <p class="spl-tag">30 de Outubro de 2026 — uma noite para sempre</p>
+    <button class="spl-btn" onclick="abrirMemorias()">💙 Reviver Esta Noite</button>
+  </div>
+</div>
+
+<!-- ══ CONTEÚDO PRINCIPAL ══ -->
+<div id="main">
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <svg class="hero-fl hero-fl-tl" viewBox="0 0 340 260" fill="none">
+    <circle cx="60" cy="80" r="38" fill="#1e4080" opacity=".85"/>
+    <circle cx="90" cy="100" r="30" fill="#2d6ab4" opacity=".7"/>
+    <circle cx="40" cy="110" r="26" fill="#1a2e5a" opacity=".8"/>
+    <ellipse cx="200" cy="40" rx="28" ry="22" fill="white" opacity=".95" transform="rotate(-20 200 40)"/>
+    <ellipse cx="230" cy="55" rx="22" ry="18" fill="#e8f0fa" opacity=".9" transform="rotate(10 230 55)"/>
+    <ellipse cx="255" cy="38" rx="20" ry="15" fill="#f0f6ff" opacity=".9" transform="rotate(5 255 38)"/>
+    <circle cx="200" cy="40" r="5" fill="#c9a84c"/><circle cx="230" cy="55" r="4" fill="#c9a84c"/>
+    <ellipse cx="140" cy="130" rx="35" ry="12" fill="#2d5a3a" opacity=".5" transform="rotate(-30 140 130)"/>
+    <circle cx="75" cy="72" r="4" fill="#c9a84c" opacity=".9"/>
+  </svg>
+  <svg class="hero-fl hero-fl-tr" viewBox="0 0 340 260" fill="none">
+    <circle cx="60" cy="80" r="38" fill="#1e4080" opacity=".85"/>
+    <circle cx="90" cy="100" r="30" fill="#2d6ab4" opacity=".7"/>
+    <ellipse cx="200" cy="40" rx="28" ry="22" fill="white" opacity=".95" transform="rotate(-20 200 40)"/>
+    <ellipse cx="255" cy="38" rx="20" ry="15" fill="#f0f6ff" opacity=".9" transform="rotate(5 255 38)"/>
+    <circle cx="200" cy="40" r="5" fill="#c9a84c"/>
+    <ellipse cx="140" cy="130" rx="35" ry="12" fill="#2d5a3a" opacity=".5" transform="rotate(-30 140 130)"/>
+  </svg>
+  <div class="hero-wc"></div>
+  <div class="hero-inner">
+    <p class="hero-sub reveal">30 de Outubro de 2026</p>
+    <h1 class="hero-name reveal">Jhennyfer</h1>
+    <div class="dv reveal"><span>❄</span></div>
+    <p class="hero-date reveal">Baile de Inverno · Embu Mirim · SP</p>
+    <p class="hero-quote reveal">"Uma noite que não existia ontem e que jamais será esquecida."</p>
+  </div>
+</section>
+
+<!-- ── LINHA DO TEMPO ── -->
+<div class="timeline-wrap">
+  <div class="sec" style="padding-bottom:0;">
+    <p class="sec-lbl reveal">A noite em ordem</p>
+    <h2 class="sec-title reveal">Como foi o Baile</h2>
+    <div class="dv reveal"><span>✦</span></div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-text-left">
+        <span class="tl-time">20h00</span>
+        <p class="tl-label">Recepção</p>
+        <p class="tl-desc">Chegada dos convidados e coquetel de boas-vindas</p>
+      </div>
+      <div class="tl-dot">🌟</div>
+      <div></div>
+    </div>
+    <div class="tl-item reveal">
+      <div></div>
+      <div class="tl-dot">👑</div>
+      <div class="tl-text-right">
+        <span class="tl-time">20h40</span>
+        <p class="tl-label">Entrada da Debutante</p>
+        <p class="tl-desc">O grande momento de Jhennyfer</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-text-left">
+        <span class="tl-time">21h00</span>
+        <p class="tl-label">A Valsa</p>
+        <p class="tl-desc">A dança dos sonhos com seus cavaleiros</p>
+      </div>
+      <div class="tl-dot">💃</div>
+      <div></div>
+    </div>
+    <div class="tl-item reveal">
+      <div></div>
+      <div class="tl-dot">🥂</div>
+      <div class="tl-text-right">
+        <span class="tl-time">21h45</span>
+        <p class="tl-label">Jantar & Brinde</p>
+        <p class="tl-desc">Celebração à mesa com os que mais amamos</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-text-left">
+        <span class="tl-time">22h30</span>
+        <p class="tl-label">Parabéns & Bolo</p>
+        <p class="tl-desc">O momento mais emocionante da noite</p>
+      </div>
+      <div class="tl-dot">🎂</div>
+      <div></div>
+    </div>
+    <div class="tl-item reveal">
+      <div></div>
+      <div class="tl-dot">🎉</div>
+      <div class="tl-text-right">
+        <span class="tl-time">23h00</span>
+        <p class="tl-label">Festa & Baile</p>
+        <p class="tl-desc">A pista tomada de alegria até o amanhecer</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CARROSSEL POLAROID ── -->
+<div class="polaroid-section">
+  <div class="sec" style="padding-bottom:20px;">
+    <p class="sec-lbl reveal">Álbum da noite</p>
+    <h2 class="sec-title reveal">Registros Polaroid</h2>
+    <div class="dv reveal"><span>✦</span></div>
+    <p class="sec-body reveal">Arraste para ver os momentos — cada foto conta um pedaço desta história.</p>
+  </div>
+  <div class="polaroid-track" id="polaroid-track">
+    <div class="polaroid">
+      <div class="polaroid-img">📸<img src="foto1.jpg" alt="Valsa" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">A Valsa</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">📸<img src="foto2.jpg" alt="Entrada" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">A Entrada</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">📸<img src="foto3.jpg" alt="Família" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">Família</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">📸<img src="foto4.jpg" alt="Brinde" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">O Brinde</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">📸<img src="foto5.jpg" alt="Bolo" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">O Bolo</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">📸<img src="foto6.jpg" alt="Amigos" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">Os Amigos</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">📸<img src="foto7.jpg" alt="Festa" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">A Festa</span>
+    </div>
+    <div class="polaroid">
+      <div class="polaroid-img">📸<img src="foto8.jpg" alt="Debutante" onerror="this.style.display='none'"/></div>
+      <span class="polaroid-caption">A Debutante</span>
+    </div>
+  </div>
+  <p class="polaroid-hint reveal">← arraste para ver mais →</p>
+  <div style="text-align:center;margin-top:30px;" class="reveal">
+    <a href="https://drive.google.com" target="_blank" style="
+      display:inline-flex;align-items:center;gap:10px;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:var(--navy);font-family:'Cinzel',serif;font-size:.78rem;
+      letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+      padding:14px 32px;border-radius:50px;
+      box-shadow:0 6px 24px rgba(201,168,76,.4);">
+      📸 Ver todas as fotos no Drive
+    </a>
+  </div>
+</div>
+
+<!-- ── MURAL DE MENSAGENS ── -->
+<div class="mural-section">
+  <div class="sec" style="max-width:860px;">
+    <p class="sec-lbl reveal">Para Jhennyfer</p>
+    <h2 class="sec-title reveal">Mural de Mensagens</h2>
+    <div class="dv reveal"><span>❄</span></div>
+    <p class="sec-body reveal">Deixe uma mensagem para Jhennyfer guardar para sempre. Cada palavra é um presente.</p>
+
+    <div class="msg-form reveal" id="msg-form">
+      <input type="text" id="msg-nome" placeholder="Seu nome" maxlength="40"/>
+      <textarea id="msg-texto" placeholder="Escreva sua mensagem para Jhennyfer..." maxlength="300"></textarea>
+      <button class="msg-btn" id="msg-btn" onclick="enviarMsg()">💙 Deixar minha mensagem</button>
+    </div>
+
+    <div class="msgs-grid" id="msgs-grid">
+      <!-- Mensagens aparecem aqui -->
+      <div class="msg-empty" id="msgs-empty">As primeiras mensagens aparecerão aqui 💙</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CÁPSULA DO TEMPO ── -->
+<div class="capsule-section">
+  <div class="sec">
+    <p class="sec-lbl reveal">Para o futuro</p>
+    <h2 class="sec-title reveal">Cápsula do Tempo</h2>
+    <div class="dv reveal"><span>✦</span></div>
+    <p class="sec-body reveal">Jhennyfer, escreva uma mensagem para você mesma. Ela ficará guardada aqui para você ler quando completar 30 anos — em 2041.</p>
+
+    <div class="capsule-card reveal">
+      <span class="capsule-lock">🔒</span>
+      <p class="capsule-desc">
+        O que você quer dizer para a Jhennyfer de 30 anos?<br/>
+        Seus sonhos, seus medos, o que sente agora?<br/>
+        Escreva do coração — só você saberá o que está aqui.
+      </p>
+      <div class="capsule-form" id="capsule-form">
+        <textarea id="capsule-txt" placeholder="Olá, eu de 2041... hoje eu tenho 15 anos e..."></textarea>
+        <button class="capsule-btn" onclick="selarCapsula()">🔒 Selar a Cápsula</button>
+      </div>
+      <div class="capsule-saved" id="capsule-saved">
+        <span class="lock-big">🔐</span>
+        <p>Sua mensagem foi selada com carinho.<br/>
+        <em>A ser aberta em 2041 — quando você tiver 30 anos.</em><br/><br/>
+        Guarde esta página com carinho, Jhennyfer. 💙</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <h2 class="ft-name">Jhennyfer</h2>
+  <div class="ft-dv"></div>
+  <p>15 Anos · Baile de Inverno · 30.10.2026</p>
+  <p style="margin-top:8px;font-size:.8rem;">Com amor, Vanderson &amp; Fabíola</p>
+</footer>
+
+</div><!-- fim main -->
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+
+  // ── SPLASH ──
+  window.abrirMemorias = function() {
+    var splash = document.getElementById('splash');
+    splash.style.opacity = '0';
+    splash.style.transition = 'opacity .9s ease';
+    setTimeout(function() {
+      splash.style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+      initReveal();
+    }, 900);
+  };
+
+  // ── SCROLL REVEAL ──
+  function initReveal() {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+  }
+
+  // ── DRAG TO SCROLL POLAROID ──
+  var track = document.getElementById('polaroid-track');
+  if (track) {
+    var isDown = false, startX, scrollLeft;
+    track.addEventListener('mousedown', function(e) {
+      isDown = true; track.style.cursor = 'grabbing';
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+    track.addEventListener('mouseleave', function() { isDown = false; track.style.cursor = 'grab'; });
+    track.addEventListener('mouseup',    function() { isDown = false; track.style.cursor = 'grab'; });
+    track.addEventListener('mousemove',  function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+  }
+
+  // ── CÁPSULA DO TEMPO ──
+  var capsulaSalva = localStorage.getItem('capsula-jhennyfer');
+  if (capsulaSalva) {
+    document.getElementById('capsule-form').style.display = 'none';
+    document.getElementById('capsule-saved').style.display = 'block';
+  }
+
+  window.selarCapsula = function() {
+    var txt = document.getElementById('capsule-txt').value.trim();
+    if (!txt) { alert('Escreva algo para o futuro 💙'); return; }
+    try { localStorage.setItem('capsula-jhennyfer', txt); } catch(e) {}
+    document.getElementById('capsule-form').style.display = 'none';
+    document.getElementById('capsule-saved').style.display = 'block';
+  };
+
+}); // fim DOMContentLoaded
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, serverTimestamp }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAazaFsD0s8gdABhz7eRepuW62K34oPFXw",
+    authDomain: "jhennyfer-15anos.firebaseapp.com",
+    projectId: "jhennyfer-15anos",
+    storageBucket: "jhennyfer-15anos.firebasestorage.app",
+    messagingSenderId: "904097686748",
+    appId: "1:904097686748:web:a5091f34163beb5d600019"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+  const col = collection(db, "mensagens");
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // Enviar mensagem
+  window.enviarMsg = async function() {
+    const nomeEl  = document.getElementById('msg-nome');
+    const textoEl = document.getElementById('msg-texto');
+    const btn     = document.getElementById('msg-btn');
+    const nome  = nomeEl.value.trim();
+    const texto = textoEl.value.trim();
+    if (!nome || !texto) { alert('Por favor, preencha seu nome e a mensagem 💙'); return; }
+
+    btn.disabled = true;
+    const original = btn.textContent;
+    btn.textContent = 'Enviando...';
+    try {
+      await addDoc(col, { nome: nome, texto: texto, criadoEm: serverTimestamp() });
+      nomeEl.value = '';
+      textoEl.value = '';
+      btn.textContent = '✔ Mensagem enviada!';
+      setTimeout(function() { btn.textContent = original; btn.disabled = false; }, 2500);
+    } catch (e) {
+      console.error(e);
+      alert('Não foi possível enviar agora. Tente novamente em instantes.');
+      btn.textContent = original;
+      btn.disabled = false;
+    }
+  };
+
+  // Ler mensagens em tempo real
+  const grid  = document.getElementById('msgs-grid');
+  const empty = document.getElementById('msgs-empty');
+  const q = query(col, orderBy('criadoEm', 'desc'), limit(100));
+
+  onSnapshot(q, function(snap) {
+    grid.querySelectorAll('.msg-card').forEach(function(c) { c.remove(); });
+    if (snap.empty) {
+      empty.textContent = 'As primeiras mensagens aparecerão aqui 💙';
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+    snap.forEach(function(doc) {
+      const m = doc.data();
+      const card = document.createElement('div');
+      card.className = 'msg-card';
+      card.innerHTML = '<p class="msg-author">' + escHtml(m.nome) + '</p>'
+                     + '<p class="msg-text">' + escHtml(m.texto) + '</p>';
+      grid.appendChild(card);
+    });
+  }, function(err) {
+    console.error(err);
+    empty.textContent = 'Não foi possível carregar as mensagens agora.';
+    empty.style.display = 'block';
+  });
+</script>
+</body>
+</html>
